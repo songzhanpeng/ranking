@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>游戏排行榜</title>
+    <style>
+      body,
+      html {
+        font-family: "Arial Black", sans-serif;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      #app {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: #0f467f;
+        padding: 0 20px;
+        overflow: hidden;
+      }
+
+      .rank-line {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #665963;
+        padding: 10px 20px;
+        color: #fff;
+        font-size: 32px;
+        font-weight: bold;
+        border-radius: 4px;
+        border: 3px solid #000;
+        border-bottom: 6px solid #000;
+        margin: 40px 0;
+      }
+
+      #rank {
+        background-color: #0f467f;
+        text-align: center;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        color: #fff;
+      }
+
+      #score {
+      }
+
+      .score-inner {
+        display: flex;
+        align-items: center;
+      }
+
+      .score-inner img {
+        width: 40px;
+      }
+
+      #images {
+        display: flex;
+        flex-direction: column;
+      }
+
+      img {
+        width: 100%;
+        margin: 4px 0;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 排名 -->
+      <div class="rank-line">
+        <div id="rank"></div>
+        <div class="score-inner">
+          <img src="score.png" alt="Image 1" />
+          <div id="score"></div>
+        </div>
+      </div>
+      <!-- 图片 -->
+      <div id="images">
+        <!-- <img src="demo.jpg" alt="Image 1" />
+        <img src="demo.jpg" alt="Image 2" />
+        <img src="demo.jpg" alt="Image 3" /> -->
+      </div>
+    </div>
+
+    <script>
+      // 从浏览器地址中读取参数
+      const urlParams = new URLSearchParams(window.location.search);
+      const rank = urlParams.get("rank");
+      const score = urlParams.get("score");
+      const imageList = urlParams.get("imageList");
+
+      // 将参数显示在页面上
+      const rankElement = document.getElementById("rank");
+      const scoreElement = document.getElementById("score");
+      const imagesElement = document.getElementById("images");
+
+      if (rank) {
+        rankElement.innerText = rank;
+      }
+
+      if (score) {
+        scoreElement.innerText = score;
+      }
+
+      // 处理外部传递的图片索引列表
+      if (imageList) {
+        const indices = imageList
+          .split(",")
+          .map((index) => parseInt(index, 10));
+
+        indices.forEach((index) => {
+          const imageElement = document.createElement("img");
+          imageElement.src = `demo.jpg`;
+          imagesElement.appendChild(imageElement);
+        });
+      }
+    </script>
+  </body>
+</html>
