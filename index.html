@@ -18,9 +18,10 @@
         height: 100%;
         display: flex;
         flex-direction: column;
-        background-color: #0f467f;
+        align-items: center;
+        background-color: #6f0cbf;
         padding: 0 20px;
-        overflow: hidden;
+        overflow-y: auto;
       }
 
       .rank-line {
@@ -38,7 +39,7 @@
         margin: 40px 0;
       }
 
-      #rank {
+      /* #rank {
         background-color: #0f467f;
         text-align: center;
         width: 50px;
@@ -48,7 +49,7 @@
       }
 
       #score {
-      }
+      } */
 
       .score-inner {
         display: flex;
@@ -64,22 +65,64 @@
         flex-direction: column;
       }
 
-      img {
+      #images img {
         width: 100%;
-        margin: 4px 0;
+        margin: 10px 0;
         border-radius: 4px;
+      }
+
+      .back {
+        /* background: url(back.jpg) center/cover no-repeat; */
+        width: 200px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin-top: 40px;
+      }
+
+      .back img {
+        position: relative;
+        z-index: 0;
+      }
+
+      #rank {
+        position: absolute;
+        left: 50%;
+        top: 40%;
+        transform: translate(-50%, -40%);
+        /* background-color: #0f467f; */
+        text-align: center;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 36px;
+        font-weight: bold;
+        /* color: #fff; */
+      }
+
+      #score {
+        position: absolute;
+        left: 50%;
+        bottom: 5%;
+        transform: translate(-50%, 0%);
       }
     </style>
   </head>
   <body>
     <div id="app">
       <!-- 排名 -->
-      <div class="rank-line">
+      <!-- <div class="rank-line">
         <div id="rank"></div>
         <div class="score-inner">
           <img src="score.png" alt="Image 1" />
           <div id="score"></div>
         </div>
+      </div> -->
+      <div class="back">
+        <img src="back.png" alt="" />
+        <div id="rank"></div>
+        <div id="score"></div>
       </div>
       <!-- 图片 -->
       <div id="images">
