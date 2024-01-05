@@ -3,7 +3,7 @@ FROM nginx:latest
 
 # 将本地文件复制到容器中的 /usr/share/nginx/html 目录
 COPY index.html /usr/share/nginx/html/
-COPY public /usr/share/nginx/html/public
+COPY public /usr/share/nginx/html
 
 # 暴露容器的端口
 EXPOSE 80

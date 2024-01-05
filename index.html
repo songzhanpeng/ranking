@@ -136,9 +136,9 @@
     <script>
       // 从浏览器地址中读取参数
       const urlParams = new URLSearchParams(window.location.search);
-      const rank = urlParams.get("rank");
-      const score = urlParams.get("score");
-      const imageList = urlParams.get("imageList");
+      const rank = urlParams.get("rank")  || 1;
+      const score = urlParams.get("score") || 10000;
+      const imageList = urlParams.get("imageList") || '1,2,3';
 
       // 将参数显示在页面上
       const rankElement = document.getElementById("rank");
